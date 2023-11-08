@@ -1,6 +1,7 @@
 import Course from "./Course";
 import "./Course.css";
 import "./Courses.css";
+import { Link } from "react-router-dom";
 
 function Courses() {
   const courses = [
@@ -32,18 +33,21 @@ function Courses() {
   ];
 
   return (
-    <div className="course__container">
-      {courses.map((course, index) => (
-        <Course
-          key={index}
-          thumbnail={course.thumbnail}
-          title={course.title}
-          author={course.author}
-          oldPrice={course.oldPrice}
-          newPrice={course.newPrice}
-          isBestSeller={course.isBestSeller}
-        />
-      ))}
+    <div className="">
+      <div className="course__container">
+        {courses.map((course, index) => (
+          <Course
+            key={index}
+            thumbnail={course.thumbnail}
+            title={course.title}
+            author={course.author}
+            oldPrice={course.oldPrice}
+            newPrice={course.newPrice}
+            isBestSeller={course.isBestSeller}
+          />
+        ))}
+      </div>
+      <Link to="/enrolled-courses">View Profile</Link>
     </div>
   );
 }
