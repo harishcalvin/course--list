@@ -1,21 +1,38 @@
 import { useLocation } from "react-router-dom";
 import "./CourseDetails.css";
+import useCourseStore from "./courseStore";
 
 function CourseDetails() {
   let { state } = useLocation();
+  const courses = useCourseStore((state) => state.courses);
+  const updateCourses = useCourseStore((state) => state.updateCourses);
+
+  const handleClick = () => {
+    const updatedCourses = courses.map((course) => {
+      if (course.title === state.title) {
+        return { ...course, isEnrolled: true };
+      }
+      return course;
+    });
+
+    updateCourses(updatedCourses);
+  };
+  const currentCourse = courses.find((c) => c.title === state.title);
 
   return (
     <div className="courseListing">
       <div className="courseListing__details">
         <div className="courseListing--info">
           <div className="courseListing__primary">
-            <h1 className="courseListing__info--title">{state.title}</h1>
+            <h1 className="courseListing__info--title">
+              {currentCourse.title}
+            </h1>
             <p className="courseListing__info--des">course description</p>
             <p className="courseListing__info--author">
               Created by
               <span className="courseListing__author--profile">
                 <a href="/google.com" className="courseListing__author--user">
-                  {state.author}
+                  {currentCourse.author}
                 </a>
               </span>
             </p>
@@ -24,11 +41,18 @@ function CourseDetails() {
             <p className="courseListing__lastUpdate">Last updated 06/2023</p>
             <p className="courseListing__language">English</p>
             <p className="courseListing__language--caption">English</p>
+            {currentCourse.isEnrolled ? (
+              <p className="fade-in">✅ Enrolled</p>
+            ) : (
+              <button className="green-button" onClick={handleClick}>
+                Enroll Now
+              </button>
+            )}
           </div>
         </div>
         <div className="courseListing--info--preview">
           <img
-            src={state.thumbnail}
+            src={currentCourse.thumbnail}
             alt=""
             className="courseListing--info--img"
           />

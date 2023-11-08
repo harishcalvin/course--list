@@ -11,3 +11,64 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.course__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  flex-wrap: wrap;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fade-in 0.5s ease-in-out;
+}
+
+.green-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.green-button:hover {
+  background-color: #45a049;
+}
+
+/* Define a 3D effect link class */
+.three-d-link {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #fff;
+  background: #3498db;
+  border: 1px solid #2980b9;
+  border-radius: 4px;
+  box-shadow: 0 4px 0 #2980b9;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Hover effect - simulate a pressed-in effect */
+.three-d-link:hover {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 #2980b9;
+}
+
+/* Active effect - simulate a button press */
+.three-d-link:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 0 #2980b9;
+}

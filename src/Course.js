@@ -7,11 +7,7 @@ function Course(props) {
       <Link
         to="/course-details"
         state={{
-          thumbnail: props.thumbnail,
           title: props.title,
-          author: props.author,
-          newPrice: props.newPrice,
-          oldPrice: props.oldPrice,
         }}
         className="course__card"
       >

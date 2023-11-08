@@ -21,6 +21,7 @@
 .courseListing__info--secondary {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
 }
 .courseListing__info--secondary p:not(:first-child) {
   padding: 0px 10px;
