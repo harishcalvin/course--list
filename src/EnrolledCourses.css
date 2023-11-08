@@ -1,0 +1,11 @@
+.studentInfo {
+  background-color: rgb(69, 68, 68);
+  color: #fff;
+  padding: 40px 40px;
+}
+.enrolledCourseList__title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  padding: 10px 0px;
+}

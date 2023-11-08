@@ -1,9 +1,20 @@
 import "./Course.css";
+import { Link } from "react-router-dom";
 
 function Course(props) {
   return (
     <div className="course">
-      <a href="#" className="course__card">
+      <Link
+        to="/course-details"
+        state={{
+          thumbnail: props.thumbnail,
+          title: props.title,
+          author: props.author,
+          newPrice: props.newPrice,
+          oldPrice: props.oldPrice,
+        }}
+        className="course__card"
+      >
         <div className="course__thumbnail">
           <img
             src={props.thumbnail}
@@ -22,7 +33,7 @@ function Course(props) {
         {props.isBestSeller ? (
           <div className="course__tag">Best Seller</div>
         ) : null}
-      </a>
+      </Link>
     </div>
   );
 }
